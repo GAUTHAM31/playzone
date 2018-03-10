@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -5,11 +6,11 @@
   <meta charset="UTF-8">
   <title>PlayZone</title>
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" type="text/css" />  
 </head>
 
-<body>
+<body data-js-vars= "{{ slots }}">
 <div class='navigation'>
   <nav class="navbar">
   <div class="container-fluid">
@@ -30,7 +31,7 @@
 </div>
 <div class="full-page">
 	<div class="text-center">
-		<img class="img img-responsive" src="images/bg.png"/>
+		<img class="img img-responsive" src="{% static 'images/bg.png' %}"/>
 	</div>
 	<div class='header-text'>
 		<h1>PlayZone is the place to go for #</h1>
@@ -48,9 +49,17 @@
 			<option value="Hyderabad">Hyderabad</option>
 		</select>
 	</div>
+<p>{{slots}}</p>
 </div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script  src="js/index.js"></script>
+    <script  src="{% static 'js/index.js' %}"></script>
+
+<script>
+       
+      </script>
 </body>
+      
+    
+
 
 </html>
