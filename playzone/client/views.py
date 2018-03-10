@@ -7,6 +7,9 @@ from django.shortcuts import render
 
 def index(request):
     slist=slot.objects.filter()
+    print slist
+    for item in slist:
+        print item.sid
     return render(request,'index.html',{'slots':slist})
 
 def landing(request):
