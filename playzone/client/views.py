@@ -14,16 +14,29 @@ def index(request):
         print item.sid
         print item.gid.location
     #json_list = json.dumps(slist)
+    glist=list()
+    for item in slist:
+        glist.append(item.gid)
     json_list = serializers.serialize("json", slist)
+    json_list2=serializers.serialize("json", glist)
     print json_list
-    return render(request,'index.html',{'slots':json_list})
+    print "*"
+    print json_list2
+    return render(request,'index.html',{'slots':json_list , 'loc':json_list2})
 
-def landing(request):
+def details(request):
     #if request.method == 'POST':
     #    location=request.POST['location']
     #    slist=slot.objects.filter(location=location)
-    return render(request,'index.html',{'slots':slist,})
+    return render(request,'details.html',{'slots':slist})
 
+def register(request):
+    if request.method == 'POST':
+       sid= request.POST['sid']
+       sobj=slot.objects.get(sid=sid)
+       sobj.no+=1
+       rlobj.save()
+       return redirect(index)
 #def addplayer(request):
 
 # Create your views here.

@@ -7,8 +7,9 @@ import datetime
 
 class ground(models.Model):
     gid=models.AutoField(primary_key=True)
-    location=models.CharField(max_length=20 )
+    location=models.CharField(max_length=20, null=True, blank= True )
     cid=models.IntegerField(default=1)
+    gname=models.CharField(max_length=20, null=True, blank=True)
 
 class slot (models.Model):
     sid=models.AutoField(primary_key=True)
