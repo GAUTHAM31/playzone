@@ -7,14 +7,14 @@ from django.shortcuts import render
 
 def index(request):
     slist=slots.objects.filter()
-    return render(request,'client/landing.html',{'slots':slist})
+    return render(request,'client/index.html',{'slots':slist})
 
 def landing(request):
     #if request.method == 'POST':
     #    location=request.POST['location']
     #    slist=slot.objects.filter(location=location)
     return render(request,'client/landing.html',{'slots':slist,})
-    
+
 def addplayer(request):
 
 # Create your views here.
