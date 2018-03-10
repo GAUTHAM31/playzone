@@ -2,12 +2,12 @@
 from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import Http404, HttpResponseRedirect, HttpResponse
-from attendance.models import slot,ground
+from client.models import slot,ground
 from django.shortcuts import render
 
 def index(request):
-    slist=slots.objects.filter()
-    return render(request,'client/index.html',{'slots':slist})
+    slist=slot.objects.filter()
+    return render(request,'index.html',{'slots':slist})
 
 def landing(request):
     #if request.method == 'POST':
@@ -15,6 +15,6 @@ def landing(request):
     #    slist=slot.objects.filter(location=location)
     return render(request,'client/landing.html',{'slots':slist,})
 
-def addplayer(request):
+#def addplayer(request):
 
 # Create your views here.
