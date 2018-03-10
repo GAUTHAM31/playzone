@@ -105,7 +105,9 @@ nav {
 	font-size: 20px;
 }
 /*card styles*/
-
+.card {
+	display: flex;
+}
 .card-info, .card__meta a {
     color: #3299BB !important;
     display: inline-flex;
@@ -119,27 +121,23 @@ nav {
 .card .card-content .card-title {
     line-height: 34px;
 }
+.card-content {
+	border-right: 1px dashed #d4c2c2;
+}
 .card__date {
-    background: #08c;
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: #fff;
-    text-align: center;
-    line-height: 13px;
+    color: #2f2a2a;
+    line-height: 30px;
+    font-size: 30px;
     font-weight: bold;
-    padding-top: 7px;
+	
 }
 .card__date__day {
   display: block;
-  font-size: 14px;
+  font-size: 30px;
 }
 .card__date__month {
   display: block;
-  font-size: 10px;
+  font-size: 20px;
   text-transform: uppercase;
 }
 
