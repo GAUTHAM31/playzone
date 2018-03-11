@@ -12,7 +12,7 @@ class ground(models.Model):
     gname=models.CharField(max_length=20, null=True, blank=True)
 
 class slot (models.Model):
-    sid=models.AutoField(primary_key=True)
+    sid=models.IntegerField(primary_key=True)
     gid=models.ForeignKey(ground, on_delete=models.CASCADE)
     starttime=models.DateTimeField(blank=True,null=True)
     endtime=models.DateTimeField(blank=True)
@@ -21,6 +21,7 @@ class slot (models.Model):
     min=models.IntegerField(blank=True)
     sport=models.CharField(max_length=20,blank=True)
     eventname=models.CharField(max_length=20,blank=True)
+    cost=models.DecimalField(max_digits=5,decimal_places=2,blank=True,default=200)
 
 
 

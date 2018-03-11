@@ -6,7 +6,7 @@ from django.contrib import admin
 class groundAdmin(admin.ModelAdmin):
     list_display=['gid','location','cid','gname']
 class slotAdmin(admin.ModelAdmin):
-    list_display=['sid','gid','starttime','endtime','no','max','min','sport']
+    list_display=['sid','gid','starttime','endtime','no','max','min','sport','cost']
 
 admin.site.register(slot, slotAdmin)
 admin.site.register(ground, groundAdmin)

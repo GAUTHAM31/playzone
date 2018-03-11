@@ -26,10 +26,29 @@ def index(request):
     return render(request,'index.html',{'slots':json_list , 'loc':json_list2})
 @csrf_exempt
 def details(request):
+    sid=request.POST["sid"]
+    print sid
+    slist=list(slot.objects.filter(sid=sid))
+    print slist
+    for item in slist:
+        print item.sid
+        print item.gid.location
+    #json_list = json.dumps(slist)
+    glist=list()
+    for item in slist:
+        glist.append(item.gid)
+    json_list = serializers.serialize("json", slist)
+    json_list2=serializers.serialize("json", glist)
+    print json_list
+    print "*"
+    print json_list2
     #if request.method == 'POST':
     #    location=request.POST['location']
     #    slist=slot.objects.filter(location=location)
-    return render(request,'details.html',{'slots':slist})
+    print json_list
+    print "*"
+    print json_list2
+    return render(request,'details.html',{'slots':json_list , 'loc':json_list2})
 
 def register(request):
     if request.method == 'POST':
