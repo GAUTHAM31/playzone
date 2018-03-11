@@ -57,6 +57,9 @@ def register(request):
        sobj.no+=1
        rlobj.save()
        return redirect(index)
+
+def profile(request):
+    return render(request,'profile.html')
 #def addplayer(request):
 
 # Create your views here.

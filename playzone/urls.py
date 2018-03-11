@@ -21,5 +21,6 @@ from client import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.index),
-    url(r'^details/',views.details)
+    url(r'^details/',views.details),
+    url(r'^profile/',views.profile)
 ]

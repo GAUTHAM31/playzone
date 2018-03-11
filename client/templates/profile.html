@@ -1,0 +1,215 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile</title>
+  <script src="https://use.typekit.net/lkh0ago.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  
+      <link rel="stylesheet" href="{% static 'css/styled.css' %}">
+
+  
+</head>
+
+<body>
+
+  <main class='profile' ontouchstart>
+  <div class='background'></div>
+  <aside class='avatar'></aside>
+  <section class='info'>
+    <h1>Abhijith S</h1>
+    <h2>Footballer</h2>
+    <a class='follow'>Cricket</a>
+    <br>
+    <h1>Badges</h1>
+    <ul>
+      <li>
+        <a class='link portfolio' href='#' target='_blank'>
+          
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM5SURBVGhD7dpZqE1RHMfxY85MKGQKT4pCyZBIxogyJXkxpgwpHhClPCikTIUyhgwpRJQHeSIeJCRRIpEpMmXm+7ta9W9Z5+zjuvvstcuvPnXP2bv2f9279tprrX0LFU4/rMdurEA75C4b8dPzHuOQm8yC3wjnA7ogF7mJUCOcdchFviHUAOcUcpFXCDXAOYBcZB9CDXAmIxdpj8cINeI0aiE36Yhj+Aw14CXWoj6iTVM0+/3jH2mANqhd9SmC1EFXjMFS7MQlPIfrNrrJd6AbMk8T9MV0qCuoe9zAJ7iCk6g7bUJrVCy62CpcwEOECquu11iOhkg99xAqoibpFzQTqd0nGgavIXTxNKiLjka56YVt6Fn1KSH1MBKzMQdTPBMx3DMUuo+uI1RwknPogWJpBE3/v0LnH0JqUSE/4BdZLhW5Hf6AMBYPYM8dj9SyC/Zi1aUBYQncA9Q/vgappQW0rvAv+i/8v65m0PORapbBXrQcH7ESj8x3xbyFHryppi6q87xRV1Q0uMxAsYFCj4NSA0GNZSpCBZSibhMqbhjO4Dt03lm0REVyGX6hSc6jVFqhovOz/ggVmmQUospRhAot5TaiWkh1gnvS/o25iCqaMoQKLeUFKjLzLTcaMp8hVOybwHeO1jNRZQJChaqrLfC+c7S4im6v9yRCxaq7Lfa+c/YjqjSH2wmx7kPTbT3E/GPSG1FlGkKFjoDW96G1/EVElyPwCz0MRQsv/5jonoouGkJtkVo/tIVyEPaYaNIXzR6WS2f4hWqUUjQkq1H+8UWILpNgi7wKbdQpWrvbY6KG6b6JLrZYjVx94KL1tm2EbEC0WQjtoGtTwEX3wFPYRujhqPlYrjIEthGimXHushV+Q7RWyVXUrZ7ANkKrxmJpDO0tX8EdHMcAZJ7BsI0QreND0fo79IZXWz3zkGk2wxalHRXtrISyB/Zc6wv0viWTqFv57wa1xxWKXrFpL8ue69M+VyYZCFvIO2jXMZQOsOeG6K1XJvF3GLegWKL+i9g+rxu2O0plL2zhlu6RzN412n8E0LMkKdp4uwXbANHOYqajliaRmpqoQeW+L9ckcjU04byLExiE/ykUCoVfhFtaOXx764AAAAAASUVORK5CYII=">
+          
+        </a>
+      </li>
+      <li>
+        <a class='link codepen' href='#' target='_blank'>
+          <img alt="3*" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPLSURBVGhD1dpLyBV1GMfx8bLQlS40ceuVapMiipdFXhZeFhFEgYImIm5SkdTSdhZeSvEStDKUFq0SNDdiiJfyAqYoGukypbyBpIkmmvb9Hd6R5314Zs6c98yZd94ffEBnnjP/5++ZM1eTIMOxEWdxB8/xFw5iAfqj09EYGusQNLZ6UC/q6VMMQ25W4h+8zHEJY9GpjMNlRGOnHuAjhNmN6EORvzEdZWcG1GQ0ZkQ9d8tqRIV5/sQIlBVtS7tRNFYe7UWNvIaHsCsfYzvexmQswm+wNXITv5ZE2/Lb15gaWz2olx14Alujb1C/62RD14KUJjEVPpqYravCV/CZBvVo6z5BcsYskOjDymbYuip8gSj6ZmzdaSR3zQKZiSg67Nm6KmjMKHNg63RoTp6ZBfIWoqyBravCKkRRj7buKZLbZoHMQpSFsHVV+ABR/DdyC8kFs0A+RhRN0NZVIWs3Xwdbdx7JHrNATiDK67B1VRiPKCdh63ahcU1jF77ABPgMga0r4ndsNf5FVJdFY/pMgq+bj2Qg/uhakPoZA+Djj3DN6GRmo0ubqC6isXzUk3qzder91YWsjg52pXwJn1/g67IcRj/YtDKRU/DROc7Xdbt41LcSXYIshs0++BpP/5JbMAg+rUxkL2w+hK+5AvXeLROh47Et1N/fQ5r1sOs9fe15aWUia5FGPfje9HuLfsuNrIAtFt3ULIUyG369VeZE0vPZMqgHv345cqPdwn9IRzJdmA3t+rNfn9JXrZOV6GrVp+hENIbG0pjReOqxafQD3Qb/YdmPG25ZFjXtU3QiGkNjRet0GG8pnyHaUFHtTCSLeupRdFj+D9FGmylzIuoh6wKycN6Fv5EpoqyJaGz1UEqmQNf80UBZypiIxtRtbqkZjeuIBoy0O5FrGIWORA8qLiIa2GtnIrq1aPoQrt3o+H4OUQNWTyeibUdXvR2JHr802810Irvv5J1MRbtT49FOldF1TtRMOzKvnTqd44ga6gltq9fyDqKmekLb6rXozuwqosZaoXuhKl5X5GYuouZaMQ+1yE+IGiziKGoTnYFbea+R0lsAvdipVfTEJGo2j55e1jJZN2SRnah1/CP/SKFb1d6ObpV/RDQB+QZ9JiMR3YzpHeFg9Kkcg5+If+hW+2j3is74P6BPZRP8JESX8e+j9nkDRxBNIqXJfAv9jmqXN/Ed/PvIPI+gp+u1mNAYHECzO788ehj9NTp+jx5FL1w+h39C3o57WILKoiPS94iaKUPjfzFUEb2riBooi14haJfteIq8tWpX5v/FipMk/wNtJIlT/FclNwAAAABJRU5ErkJggg==">
+        </a>
+      </li>
+      <li>
+        <a class='link github' href='#' target='_blank'>
+      <img alt="Footballer of the year" style="width: 50px;height: 50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAL+SURBVFhHxdhZyA1hHMfxIXspRHFhLxeyJylL3CgUZYvc4YYLJUvZlewpshQikhspS/alJKSU3Ml2IUQoQlmyfb/vOU89TeN93zgz86tP78zTe5r/OfNsM8l/phkm4wBu4hHu4zjmowNKy1Q8we96fMJKNEdhaYIdyCrob26jIwrJNmQV0ZB7aINcMxFZF2+s/cgtTRH63Gc8xtfqeWP5/72RS8bBi5xFOxuIo/Q80oVk2Yn2yC0OjJ/ogh7YgwFoizfIKirYBzMGu9C97qzG2QrnN+O854W95d761dXzXwhzoVOMbe/gL+7/Pau2LUWuuQYvpBHoiZPVvyEtYSFr686SZDjCZ+bZUOvMwOLKYXIZ4WILbaimK1bB7uAKE2cZwmem2FDr2MlvVA6TIwgXs930xweEdtnfQk4jtA+zodaZiweVw2QNwsXO2EAuILTFLNz+97Z6bj91YNU8fuvvcIMwCaGA5zAvEdpiszE6On+KXOIy9Q0DYV+LixiMq6m2YAgORece5xb7oNsoE26ZTsBR+iVq0zEMwo+ozcGWW5wyjlYOkyuIi1kPJ25HsIXZZ/si3pI5N+bS/0JGwTXYbEFcoB7CVWMDTiG9Vh9ErmkBNwquDNMQX7whLpP9kHsuYSzSA6Uh3vZC4hY+rCivkFVMmn3PL1RIRiL8GueQVVDaIhQWNwF3K4fJbmQVFLsIn2MKjb+cWYKsooLX6IzCsw6dUN9Ids2dgFLiKHYTMBRZxWk7SktrOKdZZFZx7qidM1VaWiGrQG+t67JLWryZLSUufekCD8P4ULWpclhefD8TF+dy1g294N4xPM2VlnhnLXfVZi88v153VmJ8iI8LXAAn5bC79pGztLjD/oi4QB8LHN1xmwOplMxEXIh8FTI+1ebmovB4G+8gLkS+qJyTavNtQu6v3dLxSS0uItiIW6k2rUCh8fk4XUR93sNdUCFxmXOOyyqkPn1QWLzFL5BVSJpTTdiBFxpfZ/iYOR2+xdocWY5ZcNrxTcQ/Jkn+AJApnnAGDH+mAAAAAElFTkSuQmCC">
+        </a>
+      </li>
+    </ul>
+  </section>
+</main>
+<br><br>
+
+<div class="container card-list">
+  <div class="card blue">
+    <div class="title">Total Games</div><span class="glyphicon glyphicon-upload"></span>
+    <div class="value">89</div>
+    <div class="stat"><b>13</b>% increase</div>
+  </div>
+  <div class="card green">
+    <div class="title">Points</div><span class="glyphicon glyphicon-upload"></span>
+    <div class="value">500</div>
+    <div class="stat"><b>4</b>% increase</div>
+  </div>
+  <div class="card orange">
+    <div class="title">Sports</div><span class="glyphicon glyphicon-download"></span>
+    <div class="value">2</div>
+    <div class="stat"><b>1</b>+ Last week </div>
+  </div>
+  <div class="card red">
+    <div class="title">Streak</div><span class="glyphicon glyphicon-download"></span>
+    <div class="value">3</div>
+    <div class="stat"><b>13</b>% decrease</div>
+  </div>
+</div>
+<div class="container projects">
+  <div class="projects-inner">
+    <header class="projects-header">
+      <div class="title">TimeLine</div>
+      <span class="glyphicon glyphicon-download-alt"></span>
+    </header>
+    <table class="projects-table">
+     <thead>
+      <tr>
+        <th>Sports</th>
+        <th>Date</th>
+        <th>Leader + Team</th>
+        <th>Points</th>
+    
+      </tr>
+     </thead>
+      <tr>
+        <td>
+          <p>Football</p>
+          <p>Sports Hub</p>
+        </td>
+        <td>
+          <p>17th Oct, 15</p>
+          
+        </td>
+        <td class="member">
+          <figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png"/></figure>
+          <div class="member-info">
+            <p>Rohit Jain</p>
+            <p>FC Devils</p>
+          </div>
+        </td>
+        <td>
+          <p>70</p>
+          <p>Paid</p>
+        </td>
+        
+      </tr>
+      <tr class="danger-item">
+        <td>
+          <p>Football</p>
+          <p>Sports Hub</p>
+        </td>
+        <td>
+          <p>17th Oct, 15</p>
+          
+        </td>
+        <td class="member">
+          <figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png"/></figure>
+          <div class="member-info">
+            <p>Rohit Jain</p>
+            <p>FC Devils</p>
+          </div>
+        </td>
+        <td>
+          <p>75</p>
+          <p>Points</p>
+        </td>
+        
+      </tr>
+      <tr>
+        <td>
+          <p>Football</p>
+          <p>Sports Hub</p>
+        </td>
+        <td>
+          <p>18th Oct, 15</p>
+          
+        </td>
+        <td class="member">
+          <figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png"/></figure>
+          <div class="member-info">
+            <p>Rohit Jain</p>
+            <p>FC Devils</p>
+          </div>
+        </td>
+        <td>
+          <p>60</p>
+          <p>Points</p>
+        </td>
+        
+      </tr>
+      <tr>
+        <td>
+          <p>Football</p>
+          <p>Sports Hub</p>
+        </td>
+        <td>
+          <p>20th Oct, 15</p>
+         
+        </td>
+        <td class="member">
+          <figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png"/></figure>
+          <div class="member-info">
+            <p>Rohit Jain</p>
+            <p>FC Devils</p>
+          </div>
+        </td>
+        <td>
+          <p>45</p>
+          <p>Points</p>
+        </td>
+        
+      </tr>
+      <tr>
+        <td>
+          <p>Football</p>
+          <p>Sports Hub</p>
+        </td>
+        <td>
+          <p>27th Oct, 15</p>
+         
+        </td>
+        <td class="member">
+          <figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png"/></figure>
+          <div class="member-info">
+            <p>FC Devils</p>
+            <p>FC Devils</p>
+          </div>
+        </td>
+        <td>
+          <p>30</p>
+          <p>Points</p>
+        </td>
+       
+      </tr>
+    </table>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+
+  
+
+    <script  src="{% static 'js/indexd.js' %}"></script>
+
+
+
+
+</body>
+
+</html>
