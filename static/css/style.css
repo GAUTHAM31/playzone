@@ -65,25 +65,32 @@ nav {
 	right: 0;
 	left: 0;
 }
-
+.header-text p {
+	font-size: 27px;
+}
 .navigation {
 	position: absolute;
   background: transparent;
 	width: 100%;
 	margin: 0 auto;
 }
-.navbar-brand{
+.navbar-header .navbar-brand{
   height: 70px;
+	margin-left: 8vw!important;
 }
 .navbar-brand img {
-  width: 40%;
+  width: 60%;
+}
+.navbar-right {
+	margin-right: 8vw!important;
 }
 .navbar-right a {
 	color: white;
 }
 .full-page .text-center img {
 	margin: 0 auto;
-  padding-top: 40vh;
+    padding-top: 40vh;
+    width: 80%;
 }
 .event-header {
 	width: 100%;

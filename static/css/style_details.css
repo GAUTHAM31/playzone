@@ -18,7 +18,7 @@ body,html{margin:0;padding:0;}
   position: relative; */
   /* The height of the container. Must be set, but it doesn't really matter what the value is. */
   height: 50%;
-  
+
   /* For text formatting. */
   color: white;
 	margin-bottom: 15px;
@@ -35,14 +35,14 @@ body,html{margin:0;padding:0;}
   bottom: 0;
   left: 0;
 
-  
+
   /* Move the pseudo-element back away from the camera,
    * then scale it back up to fill the viewport.
    * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
   transform: translateZ(-1px) scale(1.5);
   /* Force the background image to fill the whole element. */
   background-size: 100%;
-  /* Keep the image from overlapping sibling elements. */ 
+  /* Keep the image from overlapping sibling elements. */
   z-index: -1;
 }
 .right {
@@ -56,12 +56,17 @@ body,html{margin:0;padding:0;}
 	margin-left: 15%;
 }
 .left h1,p {
-	margin: 0 
+	margin: 0
 }
 /* The styling for the static div. */
 .static {
   background: white;
   height: 110%;
+}
+.static ul {
+  text-align: justify;
+  color: black;
+  text-shadow: none;
 }
 .bg1 {
 	display: flex;
@@ -79,7 +84,7 @@ body,html{margin:0;padding:0;}
 }
 
 .gallery {
-  /* width: 640px; */
+   width: 640px;
   margin: 0 auto;
   padding: 5px;
   background: #fff;

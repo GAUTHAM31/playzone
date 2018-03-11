@@ -37,19 +37,14 @@ def details(request):
     glist=list()
     for item in slist:
         glist.append(item.gid)
-    json_list = serializers.serialize("json", slist)
-    json_list2=serializers.serialize("json", glist)
-    print json_list
-    print "*"
-    print json_list2
+
     #if request.method == 'POST':
     #    location=request.POST['location']
     #    slist=slot.objects.filter(location=location)
-    print json_list
-    print "*"
-    print json_list2
-    return render(request,'details.html',{'slots':json_list , 'loc':json_list2})
 
+    return render(request,'details.html',{'slots':slist , 'loc':glist})
+def stadium(request):
+    return render(request,'stadium.html')
 def register(request):
     if request.method == 'POST':
        sid= request.POST['sid']

@@ -1,36 +1,50 @@
+{%load staticfiles%}
 <!DOCTYPE html>
 <html lang="en" >
 
 <head>
   <meta charset="UTF-8">
   <title>Event Details</title>
-  
-  
-  
-      <link rel="stylesheet" href="css/style_details.css">
 
-  
+
+
+      <link rel="stylesheet" href="{% static 'css/style_details.css' %}">
+
+
 </head>
 
-<body>
+
+<body data-jslist= "{{ slots }}" data-loclist= "{{loc}}">
 
   <main class="wrapper">
   <section class="section parallax bg1">
 		<div class="left">
-			<h1 class="name">Seven's Football</h1>
-			<p class="detail month">MAR 10 | 10AM to 10:30AM</p>
+
+ {% for item in slots %}
+			<h1 class="name">{{item.eventname}}</h1>
+
+			<p class="detail month">{{item.starttime}} to {{item.endtime}}</p>
 		</div>
 		<div class="right">
-			<h3 class="detail price">&#8377; 300</h3>
+			<h3 class="detail price">&#8377; {{item.cost}}</h3>
 			<button class="button col-sm-4" ><span>Book slot </span></button>
 		</div>
   </section>
   <section class="section static">
-    <h1>Boring</h1><!--
+    {% endfor %}
+    <h1>Terms and Conditions</h1><!--
     -->
 
-    <p class="rules">All of our football and badminton sessions in Sports hub are conducted at two conveniently located facilities which promises premium quality, top notch guidance from expert coaches and an unbelievable gaming escapade with amazing people that you get to meet regularly. </p>
-		
+    <ul class="rules"> <li>Cancellation Policy of ground Booking</li>
+
+<li>C20% Refund for Cancellation between 0 hr to 12 hr from slot starting time</li>
+
+<li>C50% Refund for Cancellation between 12 hr to 24 hr from slot starting time</li>
+
+<li>C70% Refund for Cancellation between 24 hr to 48 hr from slot starting time</li>
+
+<li>C80% Refund for Cancellation above 48 hr from slot starting time</li></ul>
+
 		<div class="gallery cf">
       <div>
         <img src="http://abload.de/img/a6aawu.jpg" />
@@ -44,8 +58,8 @@
     </div>
   </section>
 </main>
-  
-  
+
+
 
 </body>
 
