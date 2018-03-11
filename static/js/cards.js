@@ -32,133 +32,77 @@ function renderCards(data) {
   console.log("RENDERING");
   var html = '';
   $.each(data, function(key, value) {
-
-    html += '<div class="col s12 m6 l4"><div class="card"><div class="card-content white-text"><div class="card__date"><span class="card__date__day">23</span><span class="card__date__month">May</span></div></div><div class="card-action"><div class="card__meta"><a href="#"><i class="small material-icons">room</i>' + value.city + '</a></div><span class="card-title grey-text text-darken-4">' + value.title + '</p><span class="text-darken-2 card-info"><i class="small material-icons">label</i>&nbsp;' + value.styles + '</span></div></div>';
+    console.log(value);
+    html += '<div class="col s12 m6 l4"><div class="card"><div class="card-content white-text"><div class="card__date"><span class="card__date__day">'+value.dates[2]+'</span><span class="card__date__month">'+value.dates[1]+'</span><p>'+value.starttime+'</p><p class="text-center">to</p><p>'+value.endtime+'</p></div></div><div class="card-action"><div class="card__meta"></div><span class="card-title grey-text text-darken-4">' + value.title + '</p><a href="#"><i class="small material-icons">room</i>' + value.city + '</a><p><span class="text-darken-2 card-info"><i class="small material-icons">label</i>&nbsp;' + value.styles[0]+"-"+value.styles[1]+" players\t"+"<br>&nbsp;"+ value.styles[2]+ '</span></p><p><form method="POST" action="/details/"><button class="btn" type="submit">BOOK</button></form></p></div></div>';
 
     html += '</div>';
   });
   $('#card-container').html(html);
 
 }
+var my_vars = JSON.parse(document.getElementsByTagName('body')[0].getAttribute('data-jslist') || '{}');
 
+var my_vars1 = JSON.parse(document.getElementsByTagName('body')[0].getAttribute('data-loclist') || '{}');
+console.log(my_vars1)
+console.log(my_vars)
 //DATA:
-var data = [{
+var data=[];
+for(i=0;i<my_vars.length;i++){
+    if(my_vars[i].fields.min>my_vars[i].fields.no)
+        str="Filling Fast"
+    else if(my_vars[i].fields.max===my_vars[i].fields.no)
+        str="Filled"
+    else
+        str="Available"
+
+var date=my_vars[i].fields.endtime;
+date = date.split('T');
+etime = date[1]
+etime = etime.slice(0, -1);
+stime = my_vars[i].fields.starttime;
+stime=stime.split('T');
+stime=stime[1]
+stime = stime.slice(0, -1);
+
+date = date[0];
+date = date.split('-');
+date=new Date(date[0],date[1]-1,date[2]);
+
+date=date.toString();
+date=date.split(' ');
+
+//console.log(date[0]);
+
+var data1 = {
   "id" : 1,
-  "title": "S. Taller de Àlex Mas & Núria Bonet",
-  "begin-date": "24/06/2015",
-  "end-date": "",
+  "title": my_vars[i].fields.sport,
+  "starttime":stime ,
+  "endtime": etime,
   "lat": "",
   "lon": "",
-  "country": "Spain",
-  "country-code": "ES",
-  "city": "Vitoria-Gasteiz",
-  "address": "C/ Domingo Beltrán 19, Vitoria-Gasteiz",
-  "organizer": "Swing Up",
-  "email": "info@savoyswingup.com",
-  "web": "http://www.savoyswingup.com",
-  "phone": "656123456",
-  "event_type": "social",
+  "country": my_vars1[i].fields.location,
+  "country-code": "",
+  "city": my_vars1[i].fields.gname,
+  "address": "",
+  "organizer": "",
+  "email": "",
+  "web": "",
+  "phone": "",
+  "event_type": my_vars[i].fields.eventname,
   "styles": [
-    "lindy hop",
-    "balboa",
-    "blues"
-  ]
-}, {
-  "id" : 2,
-  "title": "C. I CRAZY WEEKEND MADRID 2016!",
-  "begin-date": "24/06/2015",
-  "end-date": "",
-  "country": "Portugal",
-  "country-code": "PT",
-  "city": "Lisboa",
-  "address": "C/ Domingo Beltrán 19, Vitoria-Gasteiz",
-  "organizer": "Swing Up",
-  "email": "info@savoyswingup.com",
-  "web": "http://www.savoyswingup.com",
-  "phone": "656123456",
-  "event_type": "class",
-  "styles": [
-    "lindy hop",
-    "balboa",
-    "blues"
-  ]
-}, {
-  "id" : 3,
-  "title": "F. Fiesta Fin de Trimestre y Despedida de Profes",
-  "begin-date": "24/06/2015",
-  "end-date": "",
-  "country": "Portugal",
-  "country-code": "PT",
-  "city": "Lisboa",
-  "address": "C/ Domingo Beltrán 19, Vitoria-Gasteiz",
-  "organizer": "Swing Up",
-  "email": "info@savoyswingup.com",
-  "web": "http://www.savoyswingup.com",
-  "phone": "656123456",
-  "event_type": "festival",
-  "styles": [
-    "lindy hop",
-    "balboa",
-    "blues"
-  ]
-}, {
-  "id" : 4,
-  "title": "C. Taller de Àlex Mas & Núria Bonet",
-  "begin-date": "24/06/2015",
-  "end-date": "",
-  "country": "Portugal",
-  "country-code": "PT",
-  "city": "Lisboa",
-  "address": "C/ Domingo Beltrán 19, Vitoria-Gasteiz",
-  "organizer": "Swing Up",
-  "email": "info@savoyswingup.com",
-  "web": "http://www.savoyswingup.com",
-  "phone": "656123456",
-  "event_type": "class",
-  "styles": [
-    "lindy hop",
-    "balboa",
-    "blues"
-  ]
-}, {
-  "id" : 5,
-  "title": "S. Taller de Àlex Mas & Núria Bonet",
-  "begin-date": "24/06/2015",
-  "end-date": "",
-  "country": "Spain",
-  "country-code": "ES",
-  "city": "Vitoria-Gasteiz",
-  "address": "C/ Domingo Beltrán 19, Vitoria-Gasteiz",
-  "organizer": "Swing Up",
-  "email": "info@savoyswingup.com",
-  "web": "http://www.savoyswingup.com",
-  "phone": "656123456",
-  "event_type": "social",
-  "styles": [
-    "lindy hop",
-    "balboa",
-    "blues"
-  ]
-}, {
-  "id" : 6,
-  "title": "C. Taller de Àlex Mas & Núria Bonet",
-  "begin-date": "24/06/2015",
-  "end-date": "",
-  "country": "Spain",
-  "country-code": "ES",
-  "city": "Vitoria-Gasteiz",
-  "address": "C/ Domingo Beltrán 19, Vitoria-Gasteiz",
-  "organizer": "Swing Up",
-  "email": "info@savoyswingup.com",
-  "web": "http://www.savoyswingup.com",
-  "phone": "656123456",
-  "event_type": "class",
-  "styles": [
-    "lindy hop",
-    "balboa",
-    "blues"
-  ]
-}];
+    my_vars[i].fields.min,
+    my_vars[i].fields.max,    
+    str
+  ],
+    "dates":date,
+  "description": ""
+}
+;
+data.push(data1);
+}
+
+
+console.log(data);
 
 renderCards(data);
 

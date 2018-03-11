@@ -6,6 +6,7 @@ from client.models import slot,ground
 from django.shortcuts import render
 import json
 from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
     slist=list(slot.objects.filter())
@@ -23,7 +24,7 @@ def index(request):
     print "*"
     print json_list2
     return render(request,'index.html',{'slots':json_list , 'loc':json_list2})
-
+@csrf_exempt
 def details(request):
     #if request.method == 'POST':
     #    location=request.POST['location']

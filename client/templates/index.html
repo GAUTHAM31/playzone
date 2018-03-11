@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -7,11 +8,11 @@
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
 	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
 	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-  <link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" type="text/css" />  
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" type="text/css" />
 </head>
 
-<body>
+<body data-jslist= "{{ slots }}" data-loclist= "{{loc}}">
 <div class='navigation'>
   <nav class="navbar">
   <div class="container-fluid">
@@ -25,20 +26,20 @@
 			<a class='btn'>Login</a>
 			<a class='btn'>Login</a>
 			<a class='btn'>Login</a>
-			
+
 		</div>
   </div>
 </nav>
 </div>
 <div class="full-page">
 	<div class="text-center">
-		<img class="img img-responsive" src="images/bg.png"/>
+		<img class="img img-responsive" src="{% static 'images/bg.png' %}"/>
 	</div>
 	<div class='header-text'>
 		<h1>PlayZone is the place to go for #</h1>
 		<p>Join us on our quest to find the best #</p>
 	</div>
-</div>  
+</div>
 <div class="events">
 	<div class="event-header">
 		Events in
@@ -193,7 +194,7 @@
               </div>
               <span class="card-title grey-text text-darken-4">Savoy swing up</span>
 
-       
+
               <span class="text-darken-2 card-info"><i class="small material-icons">label</i>&nbsp;lindy hop, balboa, charleston</span>
             </div>
             <div class="card-action">
@@ -212,7 +213,7 @@
                 <span class="card__date__day">23</span>
                 <span class="card__date__month">May</span>
               </div>
-              
+
             </div>
             <div class="card-action">
 							<div class="card__meta">
@@ -221,7 +222,7 @@
               </div>
               <span class="card-title grey-text text-darken-4">Savoy swing up</span>
 
-              
+
               <span class="text-darken-2 card-info"><i class="small material-icons">label</i>&nbsp;lindy hop, balboa, charleston</span>
               <a href="#"><i class="material-icons">&nbsp;language</i>VISIT WEB</a>
               <a href="#" class="card-action-right"><i class="material-icons">&nbsp;room</i>FIND</a>
@@ -237,8 +238,9 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js'></script>
-<script  src="js/index.js"></script>
-<script  src="js/cards.js"></script>
+
+<script  src="{% static 'js/index.js' %}"></script>
+<script  src="{% static 'js/cards.js' %}"></script>
 </body>
 
 </html>

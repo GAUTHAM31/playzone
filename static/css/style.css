@@ -3,7 +3,7 @@ body {
 }
 h4, p{
 	font-family: 'Open Sans';
-	
+
 }
 nav {
 	background-color: transparent;
@@ -95,7 +95,7 @@ nav {
 }
 .event-header select {
 	border: none;
-	border-bottom: 1px dashed grey; 
+	border-bottom: 1px dashed grey;
 	text-align-last:center;
 	width: initial;
 	display: inline;
@@ -107,6 +107,10 @@ nav {
 /*card styles*/
 .card {
 	display: flex;
+	flex-wrap: wrap;
+}
+.card form button{
+	background: #26a69a;
 }
 .card-info, .card__meta a {
     color: #3299BB !important;
@@ -129,7 +133,7 @@ nav {
     line-height: 30px;
     font-size: 30px;
     font-weight: bold;
-	
+
 }
 .card__date__day {
   display: block;
@@ -147,7 +151,7 @@ nav {
 }
 
 .card .card-title {
-    
+
     font-size: 18px;
     font-weight: 400;
 }
